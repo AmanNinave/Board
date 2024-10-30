@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.2.4",
-    "@clerk/clerk-react": "^5.13.1",
     "@clerk/nextjs": "^6.0.2",
+    "@radix-ui/react-dialog": "^1.1.2",
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-tooltip": "^1.1.3",
     "class-variance-authority": "^0.7.0",
