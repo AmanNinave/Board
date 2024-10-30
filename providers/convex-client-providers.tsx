@@ -1,29 +1,47 @@
-"use client";
+"use client"
 
 import { ClerkProvider, useAuth } from "@clerk/nextjs";
 import { ConvexProviderWithClerk } from "convex/react-clerk";
 import { Authenticated, AuthLoading, ConvexReactClient } from "convex/react";
 import { Loading } from "@/components/auth/loading";
+import {
+    SignInButton,
+    SignedIn,
+    SignedOut,
+    UserButton,
+    ClerkLoading
+  } from '@clerk/nextjs'
+import { Clapperboard } from "lucide-react";
 
 interface ConvexClientProviderProps {
   children: React.ReactNode;
 }
 
 const convexUrl = process.env.NEXT_PUBLIC_CONVEX_URL!;
+
 const convex = new ConvexReactClient(convexUrl);
 
 export const ConvexClientProvider = ({ children }: ConvexClientProviderProps) => {
   return (
-    // Wrapping with ClerkProvider and passing `useAuth` as a function prop
-    <ClerkProvider dynamic>
-      <ConvexProviderWithClerk useAuth={useAuth} client={convex}>
+    <ClerkProvider>
+        
+        {/* <ConvexProviderWithClerk useAuth={useAuth} client={convex}>
         <Authenticated>
-            {children}
+        {children}
         </Authenticated>
-        <AuthLoading>
+        </ConvexProviderWithClerk> */}
+        {/* <AuthLoading>
+            <Loading />
+        </AuthLoading> */}
+        <ClerkLoading>
             <Loading/>
-        </AuthLoading>
-      </ConvexProviderWithClerk>
+        </ClerkLoading>
+        <SignedOut>
+            <SignInButton />
+        </SignedOut>
+        <SignedIn>
+            {children}
+        </SignedIn>
     </ClerkProvider>
   );
 };
