@@ -2,13 +2,12 @@
 
 import { ClerkProvider, useAuth } from "@clerk/nextjs";
 import { ConvexProviderWithClerk } from "convex/react-clerk";
-import { Authenticated, AuthLoading, ConvexReactClient } from "convex/react";
+import { ConvexReactClient, useAction } from "convex/react";
 import { Loading } from "@/components/auth/loading";
 import {
     SignInButton,
     SignedIn,
     SignedOut,
-    UserButton,
     ClerkLoading
 } from "@clerk/nextjs";
 
@@ -22,20 +21,22 @@ const convex = new ConvexReactClient(convexUrl);
 export const ConvexClientProvider = ({ children }: ConvexClientProviderProps) => {
   return (
     <ClerkProvider dynamic>
+      <ConvexProviderWithClerk useAuth={useAuth} client={convex}>
         <ClerkLoading>
-            <Loading />
+          <Loading />
         </ClerkLoading>
 
         <SignedOut>
-            <div style={{ textAlign: "center", marginTop: "20px" }}>
-                <h2>Please Sign In to Continue</h2>
-                <SignInButton mode="modal" />
-            </div>
+          <div style={{ textAlign: "center", marginTop: "20px" }}>
+            <h2>Please Sign In to Continue</h2>
+            <SignInButton mode="modal" />
+          </div>
         </SignedOut>
 
         <SignedIn>
-            {children}
+          {children}
         </SignedIn>
+      </ConvexProviderWithClerk>
     </ClerkProvider>
   );
 };
