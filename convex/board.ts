@@ -22,8 +22,6 @@ export const create = mutation({
     handler: async (ctx , args ) => {
         const identity = await ctx.auth.getUserIdentity();
 
-        console.log(identity);
-        
         if(!identity){
             throw new Error("Unauthorized");
         }
