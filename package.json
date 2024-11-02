@@ -12,6 +12,7 @@
     "@auth0/auth0-react": "^2.2.4",
     "@clerk/nextjs": "^6.0.2",
     "@liveblocks/client": "^2.10.2",
+    "@liveblocks/node": "^2.10.2",
     "@liveblocks/react": "^2.10.2",
     "@radix-ui/react-alert-dialog": "^1.1.2",
     "@radix-ui/react-dialog": "^1.1.2",

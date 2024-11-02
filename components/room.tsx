@@ -20,7 +20,10 @@ export const Room = ({
     fallback
 }: RoomProps ) => {
     return (
-        <LiveblocksProvider publicApiKey={"pk_dev_H1WBoArC-EEFKkN0Ns7L2xt4tgMxcaVgx6ae94l7GmSqCZ-vDKRE1iYvMigNctIY"}>
+        <LiveblocksProvider 
+            // publicApiKey={"pk_dev_H1WBoArC-EEFKkN0Ns7L2xt4tgMxcaVgx6ae94l7GmSqCZ-vDKRE1iYvMigNctIY"}
+            authEndpoint="/api/liveblocks-auth"
+        >
             <RoomProvider id={roomId}>
                 <ClientSideSuspense fallback={fallback}>
                 {children}
