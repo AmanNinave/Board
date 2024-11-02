@@ -85,9 +85,9 @@ export const Info = ({
             >
                 <div>
                     <Hint label="Main Menu" side="bottom" sideOffset={10}>
-                            <Button size="icon" variant={"board"}>
-                                <Menu />
-                            </Button>
+                        <Button size="icon" variant={"board"}>
+                            <Menu />
+                        </Button>
                     </Hint>
                 </div>
             </Actions>
